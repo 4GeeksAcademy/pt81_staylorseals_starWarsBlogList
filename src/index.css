@@ -1,0 +1,18 @@
+body {
+  background-color: #212529;
+  color: white;
+  margin: 0;
+}
+
+.scrollbar-white {
+  scrollbar-color: #fff #444; /* thumb color, track color */
+  scrollbar-width: thin;
+}
+.scrollbar-white::-webkit-scrollbar {
+  height: 8px;
+  background: #444;
+}
+.scrollbar-white::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 4px;
+}
