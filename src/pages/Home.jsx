@@ -12,7 +12,6 @@ export const Home = () => {
 // Fetching data from SWAPI
 	useEffect(() => {
 
-  
   // Fetching characters from SWAPI
     fetch("https://www.swapi.tech/api/people?page=1&limit=6")
       .then(res => res.json())

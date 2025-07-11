@@ -1,5 +1,6 @@
 import React from 'react';
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Link } from "react-router-dom";
 
 export const CharacterCard = ({ character }) => {
     const { store, dispatch } = useGlobalReducer();
@@ -39,7 +40,12 @@ export const CharacterCard = ({ character }) => {
                     <strong>Eye Color:</strong> {eye_color || "Unknown"} 
                 </p>
 
-                {/* Heart icon toggle */}
+                {/* Link for viewing all details in each card */}
+            <Link to={`/character/${uid}`} className="btn btn-warning mt-2">
+                View More Details
+            </Link>
+
+                    {/* Heart icon toggle */}
                 <button
                     className="btn btn-link position-absolute top-0 end-0 p-2"
                     onClick={toggleFavorite}

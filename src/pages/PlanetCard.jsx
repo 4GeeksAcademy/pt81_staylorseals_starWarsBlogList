@@ -1,5 +1,6 @@
 import React from 'react';
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Link } from "react-router-dom";
 
 export const PlanetCard = ({ planet }) => {
     const { store, dispatch } = useGlobalReducer();
@@ -10,9 +11,7 @@ export const PlanetCard = ({ planet }) => {
     const { name, population, terrain } = properties;
 
     const formattedPopulation = population === "unknown" ? "Unknown" : Number(population).toLocaleString();
-
     const randomImgUrl = `https://picsum.photos/seed/${uid || Math.random()}/300/200`;
-
     const isFavorite = store.favorites.some(fav => fav.uid === uid);
 
     const toggleFavorite = () => {
@@ -39,8 +38,12 @@ export const PlanetCard = ({ planet }) => {
                     <strong>Terrain:</strong> {terrain || "Unknown"}<br />
                     <strong>Population:</strong> {formattedPopulation}
                 </p>
+                    {/* Link for viewing all details in each card */}
+                <Link to={`/planet/${uid}`} className="btn btn-warning mt-2">
+                    View More Details
+                </Link>
 
-                {/* Heart icon toggle */}
+                    {/* Heart icon toggle */}
                 <button
                     className="btn btn-link position-absolute top-0 end-0 p-2"
                     onClick={toggleFavorite}
